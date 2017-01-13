@@ -16,7 +16,7 @@ class App extends Component {
         <div className="App-header">
           <Logo width="320" height="80"/>
         </div>
-        <Posts posts={posts}/>
+        <Posts posts={ posts }/>
       </div>
     )
   }

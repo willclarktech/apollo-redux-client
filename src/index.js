@@ -1,8 +1,12 @@
-import Inferno from 'inferno';
-import App from './App';
-import './index.css';
+import Inferno from 'inferno'
+import { Provider } from 'inferno-redux'
+import store from './store'
+import App from './App'
+import './index.css'
 
 Inferno.render(
-  <App />,
+  <Provider store={ store }>
+    <App />
+  </Provider>,
   document.getElementById('app')
-);
+)

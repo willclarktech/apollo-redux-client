@@ -1,6 +1,6 @@
 import Inferno from 'inferno'
 
-export default ({posts}) => (
+export default ({ posts }) => (
   <div id="posts">
     <ul>
       { posts.map(p => (
