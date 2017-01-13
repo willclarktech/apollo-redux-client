@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <Logo width="80" height="80"/>
+          <Logo width="320" height="80"/>
           <h2>Welcome to Inferno</h2>
         </div>
         <p className="App-intro">
