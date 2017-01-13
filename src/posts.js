@@ -1,6 +1,9 @@
 import Inferno from 'inferno'
+import { connect } from 'inferno-redux'
 
-export default ({ posts }) => (
+const mapStateToProps = ({ posts }) => ({ posts })
+
+const Posts = ({ posts = [] }) => (
   <div id="posts">
     <ul>
       { posts.map(p => (
@@ -9,3 +12,5 @@ export default ({ posts }) => (
     </ul>
   </div>
 )
+
+export default connect(mapStateToProps)(Posts)
