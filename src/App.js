@@ -1,7 +1,13 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
-import Logo from './logo';
-import './App.css';
+import Inferno from 'inferno'
+import Component from 'inferno-component'
+import Logo from './logo'
+import Posts from './posts'
+import './App.css'
+
+const posts = [
+  { title: 'some post 1', author: 'author 1', votes: 15 },
+  { title: 'some post 2', author: 'author 2', votes: 15 },
+]
 
 class App extends Component {
   render() {
@@ -9,14 +15,11 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <Logo width="320" height="80"/>
-          <h2>Welcome to Inferno</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Posts posts={posts}/>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
