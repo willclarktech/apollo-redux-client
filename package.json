@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "inferno-devtools": "^1.1.2",
     "inferno-scripts": "0.10.2"
   },
   "dependencies": {

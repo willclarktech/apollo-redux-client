@@ -1,4 +1,5 @@
 import Inferno from 'inferno'
+require('inferno-devtools')
 import { Provider } from 'inferno-redux'
 import store from './store'
 import App from './App'
