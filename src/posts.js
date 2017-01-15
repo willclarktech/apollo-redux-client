@@ -1,16 +1,32 @@
 import Inferno from 'inferno'
-import { connect } from 'inferno-redux'
+import { graphql as connect } from 'react-apollo'
+import gql from 'graphql-tag'
+import './posts.css'
 
-const mapStateToProps = ({ posts }) => ({ posts })
+const QueryPosts = gql`
+  query QueryPosts {
+    posts {
+      title
+      votes
+      author {
+        name
+      }
+    }
+  }
+`
 
-const Posts = ({ posts = [] }) => (
+const Posts = ({ data: { posts = [] } }) => (
   <div id="posts">
-    <ul>
+    <table>
       { posts.map(p => (
-        <li>{ p.author }: { p.title } (+{ p.votes })</li>
+        <tr>
+          <td>{ p.author.name }:</td>
+          <td><i>{ p.title }</i></td>
+          <td>(+{ p.votes })</td>
+        </tr>
       )) }
-    </ul>
+    </table>
   </div>
 )
 
-export default connect(mapStateToProps)(Posts)
+export default connect(QueryPosts)(Posts)
