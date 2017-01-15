@@ -1,11 +1,13 @@
 import Inferno from 'inferno'
 import { graphql as connect } from 'react-apollo'
 import gql from 'graphql-tag'
+import Post from './post.js'
 import './posts.css'
 
 const QueryPosts = gql`
   query QueryPosts {
     posts {
+      id
       title
       votes
       author {
@@ -15,16 +17,7 @@ const QueryPosts = gql`
   }
 `
 
-const Post = ({ author, title, votes }) => (
-  <tr>
-    <td>{ author.name }:</td>
-    <td><i>{ title }</i></td>
-    <td>(+{ votes })</td>
-    <td><button>Vote</button></td>
-  </tr>
-)
-
-const Posts = ({ posts = [], loading, error }) =>
+const Posts = ({ data: { posts = [], loading, error } }) =>
   loading
     ? 'Loading...'
     : error
@@ -40,6 +33,4 @@ const Posts = ({ posts = [], loading, error }) =>
         </div>
       )
 
-export default connect(QueryPosts, {
-  props: ({ data }) => data,
-})(Posts)
+export default connect(QueryPosts)(Posts)
