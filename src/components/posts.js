@@ -24,12 +24,22 @@ const Post = ({ author, title, votes }) => (
   </tr>
 )
 
-const Posts = ({ data: { posts = [] } }) => (
-  <div id="posts">
-    <table>
-      { posts.map(p => <Post { ...p } />) }
-    </table>
-  </div>
-)
+const Posts = ({ posts = [], loading, error }) =>
+  loading
+    ? 'Loading...'
+    : error
+      ? 'Error :('
+      : (
+        <div id="posts">
+          <table>
+            { loading
+              ? 'Loading...'
+              : posts.map(p => <Post { ...p } />)
+            }
+          </table>
+        </div>
+      )
 
-export default connect(QueryPosts)(Posts)
+export default connect(QueryPosts, {
+  props: ({ data }) => data,
+})(Posts)
