@@ -82,6 +82,15 @@
     ]
   },
   "babel": {
+    "plugins": [
+      ["module-resolver", {
+        "root": ["."],
+        "alias": {
+          "react": "inferno-compat",
+          "react-dom": "inferno-compat"
+        }
+      }]
+    ],
     "presets": [
       "inferno-app"
     ]
