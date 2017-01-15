@@ -15,16 +15,19 @@ const QueryPosts = gql`
   }
 `
 
+const Post = ({ author, title, votes }) => (
+  <tr>
+    <td>{ author.name }:</td>
+    <td><i>{ title }</i></td>
+    <td>(+{ votes })</td>
+    <td><button>Vote</button></td>
+  </tr>
+)
+
 const Posts = ({ data: { posts = [] } }) => (
   <div id="posts">
     <table>
-      { posts.map(p => (
-        <tr>
-          <td>{ p.author.name }:</td>
-          <td><i>{ p.title }</i></td>
-          <td>(+{ p.votes })</td>
-        </tr>
-      )) }
+      { posts.map(p => <Post { ...p } />) }
     </table>
   </div>
 )
