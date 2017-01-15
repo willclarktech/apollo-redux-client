@@ -2,7 +2,7 @@ import Inferno from 'inferno'
 require('inferno-devtools')
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider as Provider } from 'react-apollo'
-import App from './App'
+import App from './components/App'
 import './index.css'
 
 const client = new ApolloClient({
