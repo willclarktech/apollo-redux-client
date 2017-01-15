@@ -66,6 +66,10 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],
+    "moduleNameMapper": {
+      "^react$": "<rootDir>/node_modules/inferno-compat",
+      "^react-dom": "<rootDir>/node_modules/inferno-compat"
+    },
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],
