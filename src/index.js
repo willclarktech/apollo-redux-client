@@ -1,12 +1,14 @@
 import Inferno from 'inferno'
 require('inferno-devtools')
-import { Provider } from 'inferno-redux'
-import store from './store'
+import ApolloClient from 'apollo-client'
+import { ApolloProvider as Provider } from 'react-apollo'
 import App from './App'
 import './index.css'
 
+const client = new ApolloClient()
+
 Inferno.render(
-  <Provider store={ store }>
+  <Provider client={ client }>
     <App />
   </Provider>,
   document.getElementById('app')
